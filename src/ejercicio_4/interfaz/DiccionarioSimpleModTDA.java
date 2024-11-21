@@ -1,4 +1,4 @@
-package interfaz;
+package ejercicio_4.interfaz;
 
 import tda.ConjuntoTDA;
 
