@@ -53,6 +53,10 @@ public class Main {
     }
 
     // Metodo eliminarRepetidos
+    /*
+    Devuelve una nueva ColaTDA  con los elementos de la original, sin elementos repetidos.
+    Complejidad Algorítmica: Polinómica
+    */
     public static ColaTDA eliminarRepetidos(ColaTDA cola) {
         ConjuntoTDA vistos = new Conjunto(); // conjunto auxiliar para elementos vistos
         ColaTDA resultado = new Cola(); // nueva cola sin repetidos
