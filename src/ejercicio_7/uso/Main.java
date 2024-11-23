@@ -30,6 +30,17 @@ public class Main {
         }
     }
 
+    /*
+    Verifica los elementos repetidos de una pila y los devuelve en un conjunto.
+    El metodo utiliza un conjunto y una pila auxiliares para el procesamiento.
+    Primero se extraen los datos de la pila para procesar y luego se guardan en una pila auxiliar para
+    restaurar la original.
+    Se utiliza el conjunto unicos para almacenar la primera aparicion de un valor, para luego comparar con
+    los siguientes valores de la pila. Si el elemento ya fue procesado anteriormente, se guarda en el nuevo
+    conjunto.
+    Complejidad Algorítmica: Lineal
+    */
+    
     public static ConjuntoTDA devolverElementosRepetidos(PilaTDA pila) {
         ConjuntoTDA unicos = new Conjunto(); // conjunto auxiliar para elementos únicos
         ConjuntoTDA repetidos = new Conjunto(); // conjunto a retornar con elementos repetidos
