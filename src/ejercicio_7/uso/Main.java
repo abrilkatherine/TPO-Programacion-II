@@ -22,7 +22,7 @@ public class Main {
         ConjuntoTDA repetidos = devolverElementosRepetidos(pila);
 
         // Mostrar los elementos repetidos
-        System.out.print("Elementos repetidos: ");
+        System.out.print("Elementos repetidos de la Pila: ");
         while (!repetidos.conjuntoVacio()) {
             int elemento = repetidos.elegir();
             System.out.print(elemento + " ");
