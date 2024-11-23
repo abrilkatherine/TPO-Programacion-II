@@ -43,6 +43,10 @@ public class Main {
         }
     }
 
+    /*
+    Devuelve un ConjuntoTDA con los elementos comunes de una PilaTDA y una ColaTDA.
+    Complejidad Algorítmica: Polinómica
+    */
     public static ConjuntoTDA obtenerElementosComunes(PilaTDA pila, ColaTDA cola) {
         // Conjunto auxiliar para almacenar los elementos de la pila (evita duplicados)
         ConjuntoTDA elementosPila = new Conjunto();
