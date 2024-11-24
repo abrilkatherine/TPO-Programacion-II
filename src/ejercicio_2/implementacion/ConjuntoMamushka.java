@@ -9,9 +9,11 @@ public class ConjuntoMamushka implements ConjuntoMamushkaTDA {
     /**
      * Inicializa el conjunto. Define un arreglo de tamaño fijo de 10 elementos y
      * el índice.
+     *
+     * @implNote Complejidad: Constante.
      */
     @Override
-    public void inicializar() { // Complejidad: constante
+    public void inicializar() {
         elem = new int[10];
         indice = 0;
     }
@@ -20,9 +22,11 @@ public class ConjuntoMamushka implements ConjuntoMamushkaTDA {
      * Agrega un dato al conjunto. Inserta el dato en la posición indicada por el índice.
      *
      * @param dato El valor a agregar al conjunto.
+     *
+     * @implNote Complejidad: Constante.
      */
     @Override
-    public void guardar(int dato) { // Complejidad: constante
+    public void guardar(int dato) {
         elem[indice] = dato;
         indice++;
     }
@@ -33,9 +37,11 @@ public class ConjuntoMamushka implements ConjuntoMamushkaTDA {
      * con el último elemento del conjunto.
      *
      * @param dato El valor a eliminar del conjunto.
+     *
+     * @implNote Complejidad: Lineal.
      */
     @Override
-    public void sacar(int dato) { // Complejidad: lineal
+    public void sacar(int dato) {
         for (int i = indice - 1; i >= 0; i--) { 
             if (elem[i] == dato) {
                 elem[i] = elem[indice - 1];
@@ -49,9 +55,11 @@ public class ConjuntoMamushka implements ConjuntoMamushkaTDA {
      * Selecciona un elemento aleatorio del conjunto.
      *
      * @return Un elemento random del conjunto.
+     *
+     * @implNote Complejidad: Constante.
      */
     @Override
-    public int elegir() { // Complejidad: constante
+    public int elegir() {
         return elem[(int) (Math.random() * indice)];
     }
 
@@ -60,9 +68,11 @@ public class ConjuntoMamushka implements ConjuntoMamushkaTDA {
      *
      * @param dato El valor cuya cantidad de apariciones se desea contar.
      * @return La cantidad de veces que el dato aparece en el conjunto.
+     *
+     * @implNote Complejidad: Lineal.
      */
     @Override
-    public int perteneceCant(int dato) { // Complejidad: lineal
+    public int perteneceCant(int dato) {
         int cant = 0;
 
         for (int i = 0; i < indice; i++) {
@@ -76,16 +86,20 @@ public class ConjuntoMamushka implements ConjuntoMamushkaTDA {
      * Verifica si el conjunto está vacío.
      *
      * @return {@code true} si el conjunto está vacío, {@code false} en caso contrario.
+     *
+     * @implNote Complejidad: Constante.
      */
     @Override
-    public boolean estaVacio() { // Complejidad: constante
+    public boolean estaVacio() {
         return indice == 0;
     }
 
     /**
      * Imprime todos los elementos del conjunto en la consola.
+     *
+     * @implNote Complejidad: Lineal.
      */
-    public void imprimirConjunto() { // Complejidad: lineal
+    public void imprimirConjunto() {
         for (int i = 0; i < indice; i++) {
             System.out.println(elem[i]);
         }

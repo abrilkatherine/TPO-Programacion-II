@@ -28,7 +28,7 @@ public class Main {
      * @param pilaOriginal La pila de la cual se calculará el porcentaje de elementos pares.
      * @return El porcentaje (float) de elementos pares en la pila.
      *
-     * Complejidad Algorítmica: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     public static float porcentajeElementosParesPila(PilaTDA pilaOriginal) {
         PilaTDA pilaAuxiliar = new Pila();

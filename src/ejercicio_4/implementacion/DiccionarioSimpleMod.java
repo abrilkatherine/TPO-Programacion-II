@@ -19,7 +19,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
     /**
      * Inicializa el diccionario dejándolo listo para su uso.
      *
-     * Complejidad: Constante.
+     * @implNote Complejidad: Constante.
      */
     @Override
     public void inicializarDiccionario() {
@@ -35,7 +35,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      * @param clave Clave del elemento a agregar o modificar.
      * @param valor Valor asociado a la clave.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public void agregar(int clave, int valor) {
@@ -59,7 +59,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      *
      * @param clave Clave del elemento a eliminar.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public void eliminar(int clave) {
@@ -77,7 +77,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      * @param clave Clave del elemento cuyo valor se desea recuperar.
      * @return Valor asociado a la clave.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public int recuperar(int clave) {
@@ -92,7 +92,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      * @param clave Clave del elemento cuyo factor de modificación se desea recuperar.
      * @return Factor de modificaciones de la clave.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public int recuperarMod(int clave) {
@@ -105,7 +105,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      *
      * @return Conjunto de claves presentes en el diccionario.
      *
-     * Complejidad: Polinomica.
+     * @implNote Complejidad: Polinomica.
      */
     @Override
     public ConjuntoTDA claves() {
@@ -125,7 +125,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      * @param clave Clave a buscar en el diccionario.
      * @return Índice del elemento si se encuentra; -1 si no existe.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     private int clave2Indice(int clave) {
         int i = cant - 1;

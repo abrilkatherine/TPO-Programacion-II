@@ -37,7 +37,7 @@ public class Main {
      *
      * @implNote Complejidad: Exponencial.
      */
-    public static ConjuntoTDA puente(GrafoTDA grafo, int origen, int destino) { // Complejidad: Exponencial
+    public static ConjuntoTDA puente(GrafoTDA grafo, int origen, int destino) {
         ConjuntoTDA puente = new Conjunto();
         puente.inicializarConjunto();
         ConjuntoTDA vertices = grafo.vertices();

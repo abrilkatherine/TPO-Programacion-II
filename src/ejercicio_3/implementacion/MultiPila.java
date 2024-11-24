@@ -18,9 +18,11 @@ public class MultiPila implements MultiPilaTDA {
      * Apila todos los elementos de una pila en la pila múltiple.
      *
      * @param valores La pila cuyos elementos se deben apilar en la pila múltiple.
+     *
+     * @implNote Complejidad: Lineal.
      */
 
-    public void apilar(PilaTDA valores) { // Complejidad:Lineal 
+    public void apilar(PilaTDA valores) {
         if (valores.pilaVacia()) { // Si la pila está vacía, no hace nada.
             return;
         }
@@ -43,8 +45,10 @@ public class MultiPila implements MultiPilaTDA {
      * Desapila elementos de la pila múltiple que coincidan con los de otra pila.
      *
      * @param valores La pila con los valores que se desean eliminar de la pila múltiple.
+     *
+     * @implNote Complejidad: Lineal.
      */
-    public void desapilar(PilaTDA valores) { // Complejidad: lineal
+    public void desapilar(PilaTDA valores) {
         Nodo actual = primero; // Nodo actual comienza desde el primero.
         PilaTDA temp = new Pila(); // Pila temporal para almacenar los elementos que coinciden.
         temp.inicializarPila();
@@ -76,8 +80,10 @@ public class MultiPila implements MultiPilaTDA {
      *
      * @param cantidad La cantidad de elementos a incluir.
      * @return Una pila con los primeros elementos solicitados.
+     *
+     * @implNote Complejidad: Lineal.
      */
-    public PilaTDA tope(int cantidad) { // Complejidad: lineal
+    public PilaTDA tope(int cantidad) {
         PilaTDA pilaAux = new Pila();
         pilaAux.inicializarPila();
         PilaTDA temp = new Pila(); // Pila temporal para invertir el orden.
@@ -105,8 +111,10 @@ public class MultiPila implements MultiPilaTDA {
 
     /**
      * Inicializa la pila múltiple, dejándola vacía.
+     *
+     * @implNote Complejidad: Constante.
      */
-    public void inicializarMultiPila() { // Complejidad: constante
+    public void inicializarMultiPila() {
         tamanio = 0; // Inicializa el tamaño a 0.
         primero = null; // La pila queda vacía.
     }
@@ -115,8 +123,10 @@ public class MultiPila implements MultiPilaTDA {
      * Verifica si la pila múltiple está vacía.
      *
      * @return {@code true} si la pila está vacía, {@code false} en caso contrario.
+     *
+     * @implNote Complejidad: Constante.
      */
-    public boolean pilaVacia() { // Complejidad: constante
+    public boolean pilaVacia() {
         return (primero == null);
     }
 }

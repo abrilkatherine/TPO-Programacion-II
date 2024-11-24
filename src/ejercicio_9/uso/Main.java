@@ -43,7 +43,7 @@ public class Main {
      * @param cola La cola cuyos elementos se compararán con la pila.
      * @return Un conjunto que contiene los elementos comunes entre la pila y la cola.
      *
-     * @implNote Complejidad algorítmica: Polinómica.
+     * @implNote Complejidad: Polinómica.
      */
     public static ConjuntoTDA obtenerElementosComunes(PilaTDA pila, ColaTDA cola) {
         // Conjunto auxiliar para almacenar los elementos de la pila (evita duplicados)

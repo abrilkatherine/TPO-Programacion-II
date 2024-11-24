@@ -13,7 +13,7 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
     /**
      * Inicializa el diccionario simple.
      *
-     * Complejidad: Constante.
+     * @implNote Complejidad: Constante.
      */
     @Override
     public void inicializarDiccionario() {
@@ -39,7 +39,7 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
      *
      * @param clave La clave del elemento a eliminar.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public void eliminar(int clave) {
@@ -68,7 +68,7 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
      * @param clave La clave cuyo valor se desea recuperar.
      * @return El valor asociado a la clave.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public int recuperar(int clave) {
@@ -100,7 +100,7 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
      *
      * @return Un conjunto que contiene todas las claves del diccionario.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public ConjuntoTDA claves() {
