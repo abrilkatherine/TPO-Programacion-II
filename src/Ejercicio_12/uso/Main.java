@@ -1,7 +1,7 @@
 package Ejercicio_12.uso;
 
-import imple.ABB;
-import tda.ABBTDA;
+import imple.*;
+import tda.*;
 
 public class Main {
 
@@ -19,7 +19,13 @@ public class Main {
         System.out.println("la suma de los impares es: " + sumaImpares(abb));
     }
 
-
+    /**
+     * Calcula la suma de los valores impares en un árbol binario de búsqueda (ABB).
+     *
+     * @param abb el árbol binario de búsqueda
+     * @return la suma de los valores impares en el árbol
+     * COSTO LINEAL
+     */
     public static int sumaImpares(ABBTDA abb) {
         if (abb.arbolVacio()) {
             return 0;

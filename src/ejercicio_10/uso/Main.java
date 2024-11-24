@@ -1,12 +1,8 @@
 package ejercicio_10.uso;
 
 
-import imple.DiccionarioSimple;
-import imple.Pila;
-import tda.ConjuntoTDA;
-import tda.DiccionarioSimpleTDA;
-import tda.PilaTDA;
-
+import imple.*;
+import tda.*;
 public class Main {
 
     public static void main(String[] args) {
@@ -32,6 +28,15 @@ public class Main {
             claves.sacar(clave);
         }
     }
+
+    /**
+     * Transforma una pila en un diccionario simple donde las claves son los elementos de la pila
+     * y los valores son la cantidad de veces que cada elemento aparece en la pila.
+     *
+     * @param pila la pila de la cual se obtendrán los elementos para el diccionario
+     * @return un diccionario simple con los elementos de la pila y sus respectivas frecuencias
+     * COSTO POLINOMICO
+     */
 
     public static DiccionarioSimpleTDA transformarPilaEnDiccionarioSimple(PilaTDA pila) {
         DiccionarioSimpleTDA diccionarioSimple = new DiccionarioSimple();
