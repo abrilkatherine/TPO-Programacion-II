@@ -12,6 +12,14 @@ public class Main {
 
         DiccionarioMultipleTDA diccionarioMultiple = new DiccionarioMultiple();
         diccionarioMultiple.inicializarDiccionario();
+        diccionarioMultiple.agregar(1,11);
+        diccionarioMultiple.agregar(2,11);
+        diccionarioMultiple.agregar(3,43);
+        diccionarioMultiple.agregar(9,32);
+        diccionarioMultiple.agregar(19,1);
+        diccionarioMultiple.agregar(32,11);
+
+
 
         ColaTDA queue = valoresUnicos(diccionarioMultiple);
 
