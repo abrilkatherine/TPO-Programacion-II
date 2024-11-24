@@ -8,9 +8,9 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
 
     // Clase interna que representa un elemento del diccionario
     private class Elemento {
-        int clave;      // Clave del elemento
-        int factorMod;  // Contador de modificaciones del valor
-        int valor;      // Valor asociado a la clave
+        int clave;
+        int valor;
+        int factorMod; // Contador de modificaciones del valor
     }
 
     private Elemento[] elementos;  // Arreglo que almacena los elementos
@@ -19,7 +19,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
     /**
      * Inicializa el diccionario dejándolo listo para su uso.
      *
-     * Complejidad: Constante.
+     * @implNote Complejidad: Constante.
      */
     @Override
     public void inicializarDiccionario() {
@@ -35,7 +35,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      * @param clave Clave del elemento a agregar o modificar.
      * @param valor Valor asociado a la clave.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public void agregar(int clave, int valor) {
@@ -59,7 +59,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      *
      * @param clave Clave del elemento a eliminar.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public void eliminar(int clave) {
@@ -77,7 +77,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      * @param clave Clave del elemento cuyo valor se desea recuperar.
      * @return Valor asociado a la clave.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public int recuperar(int clave) {
@@ -92,7 +92,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      * @param clave Clave del elemento cuyo factor de modificación se desea recuperar.
      * @return Factor de modificaciones de la clave.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public int recuperarMod(int clave) {
@@ -105,7 +105,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      *
      * @return Conjunto de claves presentes en el diccionario.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Polinomica.
      */
     @Override
     public ConjuntoTDA claves() {
@@ -120,12 +120,12 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
     }
 
     /**
-     * Método privado que busca el índice de una clave en el arreglo de elementos.
+     * Metodo privado que busca el índice de una clave en el arreglo de elementos.
      *
      * @param clave Clave a buscar en el diccionario.
      * @return Índice del elemento si se encuentra; -1 si no existe.
      *
-     * Complejidad: Lineal.
+     * @implNote Complejidad: Lineal.
      */
     private int clave2Indice(int clave) {
         int i = cant - 1;

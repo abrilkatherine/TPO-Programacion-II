@@ -1,9 +1,7 @@
 package ejercicio_14.uso;
 
-import imple.Conjunto;
-import imple.Grafo;
-import tda.ConjuntoTDA;
-import tda.GrafoTDA;
+import imple.*;
+import tda.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,18 +29,26 @@ public class Main {
         }
     }
 
-    public static ConjuntoTDA puente(GrafoTDA g, int o, int d) { // Complejidad: Exponencial
+    /**
+     * @param grafo El grafo sobre el cual se realizará la búsqueda.
+     * @param origen El vértice de origen.
+     * @param destino El vértice de destino.
+     * @return Un conjunto con los vértices puente entre \(origen\) y \(destino\).
+     *
+     * @implNote Complejidad: Exponencial.
+     */
+    public static ConjuntoTDA puente(GrafoTDA grafo, int origen, int destino) {
         ConjuntoTDA puente = new Conjunto();
         puente.inicializarConjunto();
-        ConjuntoTDA vertices = g.vertices();
+        ConjuntoTDA vertices = grafo.vertices();
 
         // Verificar todos los posibles vértices p en el grafo
         while (!vertices.conjuntoVacio()) {
             int p = vertices.elegir();
             vertices.sacar(p);
 
-            // Si p no es o ni d, verificar si p es puente entre o y d
-            if (p != o && p != d && g.existeArista(o, p) && g.existeArista(p, d)) {
+            // Si p no es origen ni destino, verificar si p es puente entre origen y destino
+            if (p != origen && p != destino && grafo.existeArista(origen, p) && grafo.existeArista(p, destino)) {
                 puente.agregar(p);
             }
         }

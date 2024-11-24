@@ -15,11 +15,18 @@ public class Main {
         grafo.agregarArista(3, 1, 30);
         grafo.agregarArista(3, 2, 40);
 
-        int grado = gradoVertice(grafo, 3);
+        int grado = calcularGradoVertice(grafo, 3);
         System.out.println("Grado del vertice: " + grado);
     }
 
-    public static int gradoVertice(GrafoTDA grafo, int vertice) {
+    /**
+     * @param grafo   El grafo en el que se encuentra el vértice.
+     * @param vertice El vértice cuyo grado se desea calcular.
+     * @return La diferencia entre el grado de salida y el grado de entrada del vértice.
+     *
+     * @implNote Complejidad: Polinomica.
+     */
+    public static int calcularGradoVertice(GrafoTDA grafo, int vertice) {
         int gradoSalida = 0;
         int gradoEntrada = 0;
 

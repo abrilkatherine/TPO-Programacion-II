@@ -1,14 +1,12 @@
 package ejercicio_7.uso;
 
-import imple.Conjunto;
-import imple.Pila;
-import tda.ConjuntoTDA;
-import tda.PilaTDA;
+import imple.*;
+import tda.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        PilaTDA pila = new Pila(); // Crear una instancia de la pila
+        PilaTDA pila = new Pila();
         pila.inicializarPila();
 
         // Agregar elementos a la pila
@@ -30,30 +28,27 @@ public class Main {
         }
     }
 
-    /*
-    Verifica los elementos repetidos de una pila y los devuelve en un conjunto.
-    El metodo utiliza un conjunto y una pila auxiliares para el procesamiento.
-    Primero se extraen los datos de la pila para procesar y luego se guardan en una pila auxiliar para
-    restaurar la original.
-    Se utiliza el conjunto unicos para almacenar la primera aparicion de un valor, para luego comparar con
-    los siguientes valores de la pila. Si el elemento ya fue procesado anteriormente, se guarda en el nuevo
-    conjunto.
-    Complejidad Algorítmica: Lineal
-    */
-    
+    /**
+     * Encuentra los elementos repetidos en una pila y los devuelve en un conjunto.
+     *
+     * @param pila La pila de la que se deben identificar los elementos repetidos.
+     * @return Un conjunto que contiene los elementos repetidos encontrados en la pila.
+     *
+     * @implNote Complejidad: Lineal
+     */
     public static ConjuntoTDA devolverElementosRepetidos(PilaTDA pila) {
         ConjuntoTDA unicos = new Conjunto(); // conjunto auxiliar para elementos únicos
         ConjuntoTDA repetidos = new Conjunto(); // conjunto a retornar con elementos repetidos
-        PilaTDA aux = new Pila(); // pila auxiliar para restaurar la pila original
-        // Inicialización de pilas y conjuntos
+        PilaTDA pilaAux = new Pila(); // pila auxiliar para restaurar la pila original
+
         unicos.inicializarConjunto();
         repetidos.inicializarConjunto();
-        aux.inicializarPila();
+        pilaAux.inicializarPila();
 
         while (!pila.pilaVacia()) { // Búsqueda de elementos repetidos
-            int elemento = pila.tope(); // Se destruye la pila para procesarla
+            int elemento = pila.tope();
             pila.desapilar();
-            aux.apilar(elemento); // Se guarda el dato en la pila auxiliar para reconstruir la pila original
+            pilaAux.apilar(elemento); // Se guarda el dato en la pila auxiliar
             if (unicos.pertenece(elemento)) {
                 repetidos.agregar(elemento); // Si el elemento existe, se agrega al conjunto de repetidos
             } else {
@@ -61,9 +56,9 @@ public class Main {
             }
         }
 
-        while (!aux.pilaVacia()) { // Reconstrucción de pila original
-            pila.apilar(aux.tope());
-            aux.desapilar();
+        while (!pilaAux.pilaVacia()) { // Reconstrucción de pila original
+            pila.apilar(pilaAux.tope());
+            pilaAux.desapilar();
         }
         return repetidos;
     }

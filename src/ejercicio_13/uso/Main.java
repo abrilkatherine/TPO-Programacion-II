@@ -1,7 +1,7 @@
 package ejercicio_13.uso;
 
-import tda.ABBTDA;
-import imple.ABB;
+import imple.*;
+import tda.*;
 
 public class Main {
 
@@ -18,6 +18,12 @@ public class Main {
         System.out.println("Cantidad de hojas con valor par: " + resultado);
     }
 
+    /**
+     * @param arbol El árbol binario de búsqueda a analizar.
+     * @return La cantidad de hojas con valores pares.
+     *
+     *  @implNote Complejidad: Lineal.
+     */
     public static int cantidadHojasPares(ABBTDA arbol) {
         if (arbol.arbolVacio()) {
             return 0; // Caso base: árbol vacío

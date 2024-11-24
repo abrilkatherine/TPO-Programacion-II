@@ -9,17 +9,28 @@ public class ConjuntoEspecial implements ConjuntoEspecialTDA {
     private int cant; //indica la cantidad actual de elementos en el conjunto.
     private Respuesta resp; // objeto para manejar respuestas con posibles errores.
 
+    /**
+     * Inicializa el conjunto como un arreglo de tamaño fijo, el contador y el objeto respuesta.
+     *
+     * @implNote Complejidad: Constante.
+     */
     @Override
-    public void inicializarConjunto() { // Complejidad:constante
-        // Inicializa el conjunto como un arreglo de tamaño fijo y el contador en 0.
+    public void inicializarConjunto() {
         conjunto = new int[100];
         cant = 0;
         resp = new Respuesta(); // Inicializa el objeto de respuesta.
     }
 
+    /**
+     * Agrega un valor al conjunto si no pertenece a él.
+     *
+     * @param valor El valor que se desea agregar.
+     * @return Un objeto {@link Respuesta} indicando éxito o error (si el valor ya existía).
+     *
+     * @implNote Complejidad: Lineal.
+     */
     @Override
-    public Respuesta agregar(int valor) { // Complejidad:lineal
-        // Agrega un valor al conjunto si no pertenece a él.
+    public Respuesta agregar(int valor) {
         if (!pertenece(valor)) {
             resp.error = false; // Indica que no hubo error.
             conjunto[cant] = valor; // Añade el valor al arreglo.
@@ -27,15 +38,22 @@ public class ConjuntoEspecial implements ConjuntoEspecialTDA {
         } else {
             resp.error = true; // Indica que el valor ya existía en el conjunto.
         }
-        return resp; // Devuelve el objeto de respuesta.
+        return resp;
     }
 
+    /**
+     * Elimina un valor del conjunto si está presente.
+     *
+     * @param valor El valor que se desea eliminar.
+     * @return Un objeto {@link Respuesta} indicando éxito o error (si el valor no estaba en el conjunto).
+     *
+     * @implNote Complejidad: Lineal.
+     */
     @Override
-    public Respuesta sacar(int valor) { // Complejidad:lineal
-        // Elimina un valor del conjunto si está presente.
+    public Respuesta sacar(int valor) {
         int i = 0;
 
-        while (i < cant && conjunto[i] != valor) { // Búsqueda lineal.
+        while (i < cant && conjunto[i] != valor) {
             i++;
         }
         if (i < cant) {
@@ -45,12 +63,18 @@ public class ConjuntoEspecial implements ConjuntoEspecialTDA {
         } else {
             resp.error = true; // Indica que el valor no estaba en el conjunto.
         }
-        return resp; // Devuelve el objeto de respuesta.
+        return resp;
     }
 
+    /**
+     * Selecciona un elemento aleatorio del conjunto si no está vacío.
+     *
+     * @return Un objeto {@link Respuesta} con el elemento elegido o indicando error si el conjunto está vacío.
+     *
+     * @implNote Complejidad: Constante.
+     */
     @Override
-    public Respuesta elegir() { // Complejidad: constante
-        // Selecciona un elemento aleatorio del conjunto, si no está vacío.
+    public Respuesta elegir() {
         if (!conjuntoVacio()) {
             resp.error = false; // Indica que no hubo error.
             int max = cant - 1;
@@ -61,22 +85,35 @@ public class ConjuntoEspecial implements ConjuntoEspecialTDA {
         } else {
             resp.error = true; // Indica que el conjunto está vacío.
         }
-        return resp; // Devuelve el objeto de respuesta.
+        return resp;
     }
 
+    /**
+     * Verifica si un valor pertenece al conjunto.
+     *
+     * @param valor El valor que se desea verificar.
+     * @return {@code true} si el valor pertenece al conjunto, {@code false} en caso contrario.
+     *
+     * @implNote Complejidad: Lineal.
+     */
     @Override
-    public boolean pertenece(int valor) { // Complejidad:lineal
-        // Verifica si un valor pertenece al conjunto.
+    public boolean pertenece(int valor) {
         int i = 0;
-        while (i < cant && conjunto[i] != valor) { // Búsqueda lineal.
+        while (i < cant && conjunto[i] != valor) {
             i++;
         }
-        return i < cant; // Devuelve true si el valor está en el conjunto.
+        return i < cant;
     }
 
+    /**
+     * Verifica si el conjunto está vacío.
+     *
+     * @return {@code true} si no hay elementos en el conjunto, {@code false} en caso contrario.
+     *
+     * @implNote Complejidad: Constante.
+     */
     @Override
-    public boolean conjuntoVacio() { // Complejidad:constante
-        // Verifica si el conjunto está vacío.
-        return cant == 0; // Devuelve true si no hay elementos en el conjunto.
+    public boolean conjuntoVacio() {
+        return cant == 0;
     }
 }
