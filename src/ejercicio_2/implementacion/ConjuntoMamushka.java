@@ -6,55 +6,86 @@ public class ConjuntoMamushka implements ConjuntoMamushkaTDA {
     private int[] elem; // Declaración del arreglo que almacenará los elementos.
     private int indice; // Variable que indica la posición actual para insertar elementos.
 
+    /**
+     * Inicializa el conjunto. Define un arreglo de tamaño fijo de 10 elementos y
+     * el índice.
+     */
     @Override
-    public void inicializar() { // Complejidad: Constante
-        elem = new int[10]; // Inicializa el arreglo con capacidad para 10 elementos.
-        indice = 0; // Inicializa el índice en 0.
+    public void inicializar() { // Complejidad: constante
+        elem = new int[10];
+        indice = 0;
     }
 
+    /**
+     * Agrega un dato al conjunto. Inserta el dato en la posición indicada por el índice.
+     *
+     * @param dato El valor a agregar al conjunto.
+     */
     @Override
-    public void guardar(int dato) { // Complejidad: Constante
-        elem[indice] = dato; // Asigna el dato en la posición indicada por "indice".
-        indice++; // Incrementa el índice para la próxima inserción.
+    public void guardar(int dato) { // Complejidad: constante
+        elem[indice] = dato;
+        indice++;
     }
 
+    /**
+     * Elimina una aparición del dato especificado del conjunto.
+     * Busca el dato desde el final hacia el principio, y lo reemplaza
+     * con el último elemento del conjunto.
+     *
+     * @param dato El valor a eliminar del conjunto.
+     */
     @Override
-    public void sacar(int dato) { // Complejidad: Lineal
-        // Busca el dato en el arreglo desde el final hacia el principio.
+    public void sacar(int dato) { // Complejidad: lineal
         for (int i = indice - 1; i >= 0; i--) { 
-            if (elem[i] == dato) { // Si encuentra el dato..
-                elem[i] = elem[indice - 1]; // Reemplaza con el último elemento.
+            if (elem[i] == dato) {
+                elem[i] = elem[indice - 1];
                 indice--; // Reduce el tamaño del conjunto.
                 return; 
             }
         }
     }
 
+    /**
+     * Selecciona un elemento aleatorio del conjunto.
+     *
+     * @return Un elemento random del conjunto.
+     */
     @Override
-    public int elegir() { // Complejidad: Constante
-        // Devuelve un elemento aleatorio del arreglo.
+    public int elegir() { // Complejidad: constante
         return elem[(int) (Math.random() * indice)];
     }
 
+    /**
+     * Cuenta cuántas veces aparece un dato específico en el conjunto.
+     *
+     * @param dato El valor cuya cantidad de apariciones se desea contar.
+     * @return La cantidad de veces que el dato aparece en el conjunto.
+     */
     @Override
-    public int perteneceCant(int dato) { // Complejidad: Lineal
-        int cant = 0; // Inicializa el contador.
+    public int perteneceCant(int dato) { // Complejidad: lineal
+        int cant = 0;
 
-        for (int i = 0; i < indice; i++) { // Recorre todos los elementos.
-            if (elem[i] == dato) // Si el elemento coincide con el dato...
-                cant++; // Incrementa el contador.
+        for (int i = 0; i < indice; i++) {
+            if (elem[i] == dato)
+                cant++;
         }
-        return cant; // Devuelve la cantidad de coincidencias.
+        return cant;
     }
 
+    /**
+     * Verifica si el conjunto está vacío.
+     *
+     * @return {@code true} si el conjunto está vacío, {@code false} en caso contrario.
+     */
     @Override
-    public boolean estaVacio() { // Complejidad: Constante
-        // Devuelve si el índice es igual a 0, lo que indica que no hay elementos.
+    public boolean estaVacio() { // Complejidad: constante
         return indice == 0;
     }
 
-    public void p() { // Complejidad: Lineal
-        // Imprime todos los elementos del conjunto.
+    /**
+     * Imprime todos los elementos del conjunto en la consola.
+     */
+    public void imprimirConjunto() { // Complejidad: lineal
         for (int i = 0; i < indice; i++) {
             System.out.println(elem[i]);
         }

@@ -1,7 +1,7 @@
 package ejercicio_6.uso;
 
-import imple.Pila;
-import tda.PilaTDA;
+import imple.*;
+import tda.*;
 
 public class Main {
     public static void main(String[] args) {

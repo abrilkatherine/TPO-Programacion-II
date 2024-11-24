@@ -24,14 +24,13 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
     /**
      * Agrega un par clave-valor al diccionario.
      *
-     * @param clave La clave asociada al valor.
+     * @param clave La clave (prioridad) asociada al valor.
      * @param valor El valor que se asocia a la clave.
      *
-     * Complejidad: Logarítmica.
+     * @implNote Complejidad: Logarítmica.
      */
     @Override
     public void agregar(int clave, int valor) {
-        // En la Cola de Prioridad, la prioridad es la clave, y el valor es el valor asociado.
         elementos.acolarPrioridad(valor, clave);
     }
 
