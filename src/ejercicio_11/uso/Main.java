@@ -1,12 +1,13 @@
 package ejercicio_11.uso;
 
+import imple.*;
+import tda.*;
 public class Main {
 
     public static void main(String[] args) {
 
         DiccionarioMultipleTDA diccionarioMultiple = new DiccionarioMultiple();
-        diccionarioMultiple.inicializacion();
-
+        diccionarioMultiple.inicializarDiccionario();
 
         ColaTDA queue = valoresUnicos(diccionarioMultiple);
     }
@@ -15,14 +16,17 @@ public class Main {
 
         ColaTDA queue = new Cola();
         queue.inicializarCola();
-        ConjuntoTDA conjunto = diccionarioMultiple.obtenerClaves();
+        ConjuntoTDA claves = diccionarioMultiple.claves();
 
-        while (!conjunto.conjuntoVacio()) {
-            int clave = conjunto.elegir();
-            conjunto.sacar(clave);
+        while (!claves.conjuntoVacio()) {
+            int clave = claves.elegir();
+            claves.sacar(clave);
 
-            int[] valores = diccionarioMultiple.obtenerValores(clave);
-            for (int valor : valores) {
+            ConjuntoTDA valores = diccionarioMultiple.recuperar(clave);
+            while (!valores.conjuntoVacio()) {
+                int valor = valores.elegir();
+                valores.sacar(valor);
+
                 if (!contieneValor(queue, valor)) {
                     queue.acolar(valor);
                 }

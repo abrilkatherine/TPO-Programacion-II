@@ -1,72 +1,71 @@
 package ejercicio_10.uso;
 
 
-import ejercicio_5.implementacion.DiccionarioSimple;
-
+import imple.*;
+import tda.*;
 public class Main {
 
     public static void main(String[] args) {
+        // Inicializar una pila y agregar elementos
         PilaTDA pila = new Pila();
-
         pila.inicializarPila();
         pila.apilar(1);
         pila.apilar(2);
         pila.apilar(3);
         pila.apilar(4);
+        pila.apilar(3);
+        pila.apilar(2);
 
+        // Transformar la pila en un diccionario simple
         DiccionarioSimpleTDA diccionarioSimple = transformarPilaEnDiccionarioSimple(pila);
+
+        // Imprime los elementos del diccionario
+        System.out.println("Contenido del Diccionario:");
+        ConjuntoTDA claves = diccionarioSimple.claves();
+        while (!claves.conjuntoVacio()) {
+            int clave = claves.elegir();
+            System.out.println("Clave: " + clave + ", Valor: " + diccionarioSimple.recuperar(clave));
+            claves.sacar(clave);
+        }
     }
 
-
     public static DiccionarioSimpleTDA transformarPilaEnDiccionarioSimple(PilaTDA pila) {
-
         DiccionarioSimpleTDA diccionarioSimple = new DiccionarioSimple();
-        diccionarioSimple.inicializacion();
+        diccionarioSimple.inicializarDiccionario();
 
         PilaTDA pilaAux = new Pila();
         pilaAux.inicializarPila();
 
-
-        /*
-        una vez inicializada la pila auxiliar que me va a servir para recontruir la pila original
-        y ya inicializado el diccionario simple que me va a servir para contar la cantidad de veces que se repite un elemento
-
-
-        */
-
+        // Recorre la pila original para contar las apariciones de cada elemento
         while (!pila.pilaVacia()) {
             int elemento = pila.tope();
             pila.desapilar();
-            pilaAux.apilar(elemento);
+            pilaAux.apilar(elemento); // Copia el elemento en la pila auxiliar.
 
-            /*
-            una vez que recupero el elemento de la pila original
-            utilizo el metodo recuperarValor del diccionario para poder recuperar la cantidad de veces que se repite el elemento
-        */
+            // Verifica si la clave ya existe en el diccionario antes de recuperarla.
+            ConjuntoTDA claves = diccionarioSimple.claves();
+            boolean existe = false;
 
-            int contador = diccionarioSimple.recuperarValor(elemento);
-            if (contador != 0) {
-          /*
-           en base al resultado de si trajo o no valores contador
-           voy a proceder en aumentar +1 la cantidad de coincidencias del elemento en el diccionario
-            */
+            // Itera por las claves para verificar si el elemento ya está presente.
+            while (!claves.conjuntoVacio()) {
+                int clave = claves.elegir();
+                if (clave == elemento) {
+                    existe = true;
+                }
+                claves.sacar(clave);
+            }
 
+            // Si la clave existe, recupera y actualiza el valor
+            if (existe) {
+                int contador = diccionarioSimple.recuperar(elemento);
                 diccionarioSimple.agregar(elemento, contador + 1);
             } else {
-
-                 /*
-                 en caso de que no haya traido valores contador
-                 le setteo por default 1
-            */
+                // Si no existe, agrégala con un valor inicial de 1
                 diccionarioSimple.agregar(elemento, 1);
             }
         }
 
-           /*
-              rearmo la pila original con los elementos de la pila auxiliar
-
-            */
-
+        // Restaura la pila original desde la pila auxiliar
         while (!pilaAux.pilaVacia()) {
             pila.apilar(pilaAux.tope());
             pilaAux.desapilar();
@@ -74,6 +73,4 @@ public class Main {
 
         return diccionarioSimple;
     }
-
-
 }
