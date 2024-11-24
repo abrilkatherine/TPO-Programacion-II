@@ -1,7 +1,11 @@
 package ejercicio_11.uso;
 
-import imple.*;
-import tda.*;
+import imple.Cola;
+import imple.DiccionarioMultiple;
+import tda.ColaTDA;
+import tda.ConjuntoTDA;
+import tda.DiccionarioMultipleTDA;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,6 +14,12 @@ public class Main {
         diccionarioMultiple.inicializarDiccionario();
 
         ColaTDA queue = valoresUnicos(diccionarioMultiple);
+
+        while (!queue.colaVacia()) {
+            System.out.println("valores de la queue: " + queue.primero());
+            queue.desacolar();
+        }
+
     }
 
     public static ColaTDA valoresUnicos(DiccionarioMultipleTDA diccionarioMultiple) {

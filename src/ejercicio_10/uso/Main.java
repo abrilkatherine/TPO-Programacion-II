@@ -1,8 +1,12 @@
 package ejercicio_10.uso;
 
 
-import imple.*;
-import tda.*;
+import imple.DiccionarioSimple;
+import imple.Pila;
+import tda.ConjuntoTDA;
+import tda.DiccionarioSimpleTDA;
+import tda.PilaTDA;
+
 public class Main {
 
     public static void main(String[] args) {
