@@ -1,9 +1,7 @@
 package ejercicio_8.uso;
 
-import imple.Cola;
-import imple.Conjunto;
-import tda.ColaTDA;
-import tda.ConjuntoTDA;
+import imple.*;
+import tda.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,7 +30,11 @@ public class Main {
         imprimirCola(colaOriginal);
     }
 
-    // Metodo auxiliar para imprimir los elementos de una cola
+    /**
+     * Imprime los elementos de una cola, restaurándola a su estado original.
+     *
+     * @param cola La cola cuyos elementos se deben imprimir.
+     */
     public static void imprimirCola(ColaTDA cola) {
         ColaTDA aux = new Cola();
         aux.inicializarCola();
@@ -41,7 +43,7 @@ public class Main {
             int elemento = cola.primero();
             System.out.print(elemento + " ");
             cola.desacolar();
-            aux.acolar(elemento); // Restaurar en la auxiliar
+            aux.acolar(elemento);
         }
         System.out.println();
 
@@ -52,31 +54,39 @@ public class Main {
         }
     }
 
-    // Metodo eliminarRepetidos
+    /**
+     * Devuelve una nueva cola sin elementos repetidos basada en una cola original.
+     * Mantiene la cola original sin modificaciones.
+     *
+     * @param cola La cola original con posibles elementos repetidos.
+     * @return Una nueva cola que contiene solo elementos únicos.
+     */
+
     public static ColaTDA eliminarRepetidos(ColaTDA cola) {
-        ConjuntoTDA vistos = new Conjunto(); // conjunto auxiliar para elementos vistos
-        ColaTDA resultado = new Cola(); // nueva cola sin repetidos
-        ColaTDA aux = new Cola(); // cola auxiliar para restaurar la cola original
-        // Inicialización de colas y conjuntos
-        vistos.inicializarConjunto();
-        resultado.inicializarCola();
-        aux.inicializarCola();
+        ConjuntoTDA elementosVistos = new Conjunto(); // conjunto auxiliar para elementos elementosVistos
+        ColaTDA colaSinDuplicados = new Cola(); //
+        ColaTDA colaAux = new Cola(); // cola auxiliar para restaurar la cola original
+
+        elementosVistos.inicializarConjunto();
+        colaSinDuplicados.inicializarCola();
+        colaAux.inicializarCola();
 
         // Búsqueda de elementos no repetidos
         while (!cola.colaVacia()) {
             int elemento = cola.primero(); // Se destruye la cola para procesarla
             cola.desacolar();
-            aux.acolar(elemento); // Se guarda el elemento en la cola auxiliar
-            if (!vistos.pertenece(elemento)) { // Si el elemento es nuevo se procesa
-                vistos.agregar(elemento); // Se agrega el elemento a vistos para evitar repetidos
-                resultado.acolar(elemento); // Se agrega el elemento a la nueva cola
+            colaAux.acolar(elemento); // Se guarda el elemento en la cola auxiliar
+
+            if (!elementosVistos.pertenece(elemento)) {
+                elementosVistos.agregar(elemento);
+                colaSinDuplicados.acolar(elemento);
             }
         }
         // Restauración de la cola original
-        while (!aux.colaVacia()) {
-            cola.acolar(aux.primero());
-            aux.desacolar();
+        while (!colaAux.colaVacia()) {
+            cola.acolar(colaAux.primero());
+            colaAux.desacolar();
         }
-        return resultado;
+        return colaSinDuplicados;
     }
 }

@@ -1,15 +1,10 @@
 package ejercicio_9.uso;
 
-import imple.Cola;
-import imple.Conjunto;
-import imple.Pila;
-import tda.ColaTDA;
-import tda.ConjuntoTDA;
-import tda.PilaTDA;
+import imple.*;
+import tda.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Crear e inicializar la pila y la cola
         PilaTDA pila = new Pila();
         ColaTDA cola = new Cola();
         pila.inicializarPila();
@@ -43,14 +38,20 @@ public class Main {
         }
     }
 
+    /**
+     * @param pila La pila cuyos elementos se compararán con la cola.
+     * @param cola La cola cuyos elementos se compararán con la pila.
+     * @return Un conjunto que contiene los elementos comunes entre la pila y la cola.
+     *
+     * @implNote Complejidad: Polinómica.
+     */
     public static ConjuntoTDA obtenerElementosComunes(PilaTDA pila, ColaTDA cola) {
         // Conjunto auxiliar para almacenar los elementos de la pila (evita duplicados)
         ConjuntoTDA elementosPila = new Conjunto();
         // Conjunto para guardar los elementos comunes entre la pila y la cola
         ConjuntoTDA comunes = new Conjunto();
-        // Pila auxiliar para restaurar la pila original después del procesamiento
+
         PilaTDA auxPila = new Pila();
-        // Cola auxiliar para restaurar la cola original después del procesamiento
         ColaTDA auxCola = new Cola();
 
         // Inicializar los conjuntos y las estructuras auxiliares
@@ -80,21 +81,18 @@ public class Main {
             }
         }
 
-        // Restaurar la pila original:
-        // Reapilar todos los elementos desde la pila auxiliar a la pila original
+        // Restaurar la pila original
         while (!auxPila.pilaVacia()) {
             pila.apilar(auxPila.tope());
             auxPila.desapilar();
         }
 
-        // Restaurar la cola original:
-        // Reacolar todos los elementos desde la cola auxiliar a la cola original
+        // Restauramos la cola original
         while (!auxCola.colaVacia()) {
             cola.acolar(auxCola.primero());
             auxCola.desacolar();
         }
 
-        // Devolver el conjunto con los elementos comunes
         return comunes;
     }
 }

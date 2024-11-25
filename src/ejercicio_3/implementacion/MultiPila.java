@@ -14,7 +14,15 @@ public class MultiPila implements MultiPilaTDA {
     private Nodo primero; // Referencia al primer nodo de la pila múltiple
     private int tamanio; // Tamaño de la pila múltiple
 
-    public void apilar(PilaTDA valores) { // Complejidad:Lineal 
+    /**
+     * Apila todos los elementos de una pila en la pila múltiple.
+     *
+     * @param valores La pila cuyos elementos se deben apilar en la pila múltiple.
+     *
+     * @implNote Complejidad: Lineal.
+     */
+
+    public void apilar(PilaTDA valores) {
         if (valores.pilaVacia()) { // Si la pila está vacía, no hace nada.
             return;
         }
@@ -33,7 +41,14 @@ public class MultiPila implements MultiPilaTDA {
         valores.apilar(x); // Vuelve a apilar el elemento original en "valores".
     }
 
-    public void desapilar(PilaTDA valores) { // Complejidad:Lineal 
+    /**
+     * Desapila elementos de la pila múltiple que coincidan con los de otra pila.
+     *
+     * @param valores La pila con los valores que se desean eliminar de la pila múltiple.
+     *
+     * @implNote Complejidad: Lineal.
+     */
+    public void desapilar(PilaTDA valores) {
         Nodo actual = primero; // Nodo actual comienza desde el primero.
         PilaTDA temp = new Pila(); // Pila temporal para almacenar los elementos que coinciden.
         temp.inicializarPila();
@@ -60,8 +75,16 @@ public class MultiPila implements MultiPilaTDA {
         }
     }
 
-    public PilaTDA tope(int cantidad) { // Complejidad:Lineal 
-        PilaTDA pilaAux = new Pila(); // Pila auxiliar para devolver los elementos.
+    /**
+     * Devuelve una pila auxiliar con los primeros {@code cantidad} elementos de la pila múltiple.
+     *
+     * @param cantidad La cantidad de elementos a incluir.
+     * @return Una pila con los primeros elementos solicitados.
+     *
+     * @implNote Complejidad: Lineal.
+     */
+    public PilaTDA tope(int cantidad) {
+        PilaTDA pilaAux = new Pila();
         pilaAux.inicializarPila();
         PilaTDA temp = new Pila(); // Pila temporal para invertir el orden.
         temp.inicializarPila();
@@ -86,12 +109,24 @@ public class MultiPila implements MultiPilaTDA {
         return pilaAux; // Devuelve la pila auxiliar.
     }
 
-    public void inicializarMultiPila() { // Complejidad: Constante
+    /**
+     * Inicializa la pila múltiple, dejándola vacía.
+     *
+     * @implNote Complejidad: Constante.
+     */
+    public void inicializarMultiPila() {
         tamanio = 0; // Inicializa el tamaño a 0.
         primero = null; // La pila queda vacía.
     }
 
-    public boolean pilaVacia() { // Complejidad: Constante
-        return (primero == null); // Devuelve si la pila múltiple está vacía.
+    /**
+     * Verifica si la pila múltiple está vacía.
+     *
+     * @return {@code true} si la pila está vacía, {@code false} en caso contrario.
+     *
+     * @implNote Complejidad: Constante.
+     */
+    public boolean pilaVacia() {
+        return (primero == null);
     }
 }
