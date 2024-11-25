@@ -5,3 +5,11 @@ Este repositorio contiene el TPO de la materia **Algoritmos y Estructuras de Dat
 
 ## Enunciado
 - [Trabajo Práctico - Enunciado](docs/TPO.pdf)
+
+## Integrantes - Grupo 2
+
+- Chavaño, Abril Katherine.
+- Larrart, Rodrigo Nicolás.
+- Baptista, Candela Belen.
+- Gruber, Ivan Roberto.
+- Attadia, Gianfranco Matias.
