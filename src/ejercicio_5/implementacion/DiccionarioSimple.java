@@ -30,7 +30,7 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
      * @param clave La clave (prioridad) asociada al valor.
      * @param valor El valor que se asocia a la clave.
      *
-     * @implNote Complejidad: Logarítmica.
+     * @implNote Complejidad: lineal.
      */
     @Override
     public void agregar(int clave, int valor) {
