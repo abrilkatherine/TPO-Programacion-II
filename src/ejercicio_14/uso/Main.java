@@ -37,7 +37,6 @@ public class Main {
      * @param destino Vértice de destino al que se dirige la búsqueda.
      * @return Conjunto con los vértices puente entre el origen y el destino.
      *
-     * @implNote Complejidad: Exponencial.
      */
 
     public static ConjuntoTDA puente(GrafoTDA grafo, int origen, int destino) {

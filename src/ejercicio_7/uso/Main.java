@@ -38,7 +38,6 @@ public class Main {
      * @param pila Pila de la que se identifican los elementos repetidos. Queda restaurada tras la ejecución.
      * @return Conjunto con los elementos repetidos encontrados en la pila.
      *
-     * @implNote Complejidad: Lineal.
      */
     public static ConjuntoTDA devolverElementosRepetidos(PilaTDA pila) {
         ConjuntoTDA unicos = new Conjunto(); // conjunto auxiliar para elementos únicos

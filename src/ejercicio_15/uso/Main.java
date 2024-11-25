@@ -26,7 +26,6 @@ public class Main {
      * @param vertice Vértice cuyo grado se desea calcular.
      * @return La diferencia entre el grado de salida y el grado de entrada del vértice.
      *
-     * @implNote Complejidad: Polinómica.
      */
 
 

@@ -33,7 +33,6 @@ public class Main {
      * @param diccionarioMultiple Diccionario múltiple del cual se obtendrán los valores únicos.
      * @return Cola con los valores únicos presentes en el diccionario.
      *
-     * @implNote Complejidad: Polinómica.
      */
 
     public static ColaTDA valoresUnicos(DiccionarioMultipleTDA diccionarioMultiple) {

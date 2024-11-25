@@ -64,7 +64,6 @@ public class Main {
      * @param cola La cola original con posibles elementos repetidos.
      * @return Una nueva cola que contiene solo elementos únicos, en el mismo orden en que aparecían en la cola original.
      *
-     * @implNote Complejidad: lineal.
      */
     public static ColaTDA eliminarRepetidos(ColaTDA cola) {
         ConjuntoTDA elementosVistos = new Conjunto(); // Conjunto auxiliar para almacenar elementos únicos
