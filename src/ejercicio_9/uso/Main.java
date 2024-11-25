@@ -39,12 +39,15 @@ public class Main {
     }
 
     /**
-     * @param pila La pila cuyos elementos se compararán con la cola.
-     * @param cola La cola cuyos elementos se compararán con la pila.
-     * @return Un conjunto que contiene los elementos comunes entre la pila y la cola.
+     * Encuentra los elementos comunes entre una pila y una cola, devolviéndolos en un conjunto. Las estructuras
+     * originales no se modifican, ya que son restauradas tras el procesamiento.
      *
-     * @implNote Complejidad: Polinómica.
+     * @param pila Pila cuyos elementos se compararán con los de la cola.
+     * @param cola Cola cuyos elementos se compararán con los de la pila.
+     * @return Conjunto con los elementos comunes entre la pila y la cola.
+     *
      */
+
     public static ConjuntoTDA obtenerElementosComunes(PilaTDA pila, ColaTDA cola) {
         // Conjunto auxiliar para almacenar los elementos de la pila (evita duplicados)
         ConjuntoTDA elementosPila = new Conjunto();

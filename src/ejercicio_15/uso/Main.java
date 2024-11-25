@@ -20,12 +20,15 @@ public class Main {
     }
 
     /**
-     * @param grafo   El grafo en el que se encuentra el vértice.
-     * @param vertice El vértice cuyo grado se desea calcular.
+     * Recorre todos los vértices del grafo para verificar conexiones con el vértice especificado.
+     *
+     * @param grafo Grafo en el que se encuentra el vértice.
+     * @param vertice Vértice cuyo grado se desea calcular.
      * @return La diferencia entre el grado de salida y el grado de entrada del vértice.
      *
-     * @implNote Complejidad: Polinomica.
      */
+
+
     public static int calcularGradoVertice(GrafoTDA grafo, int vertice) {
         int gradoSalida = 0;
         int gradoEntrada = 0;

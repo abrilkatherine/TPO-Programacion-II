@@ -19,11 +19,15 @@ public class Main {
     }
 
     /**
-     * @param arbol El árbol binario de búsqueda a analizar.
-     * @return La cantidad de hojas con valores pares.
      *
-     *  @implNote Complejidad: Lineal.
+     * Recorre el árbol en forma recursiva, verificando si cada hoja tiene un valor par. Si el nodo actual es una hoja
+     * y su valor es par, se cuenta. La recursión asegura que se evalúen todas las hojas del árbol.
+     *
+     * @param arbol Árbol binario de búsqueda (ABB) cuyos nodos se analizarán.
+     * @return La cantidad de hojas con valores pares en el árbol.
+     *
      */
+
     public static int cantidadHojasPares(ABBTDA arbol) {
         if (arbol.arbolVacio()) {
             return 0; // Caso base: árbol vacío

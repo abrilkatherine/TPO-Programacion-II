@@ -8,10 +8,12 @@ import tda.ConjuntoTDA;
 
 public class DiccionarioSimple implements DiccionarioSimpleTDA {
 
+    /** Resolución adoptada: implementación a partir de ColaPrioridadTDA. */
+
     private ColaPrioridad elementos;
 
     /**
-     * Inicializa el diccionario simple.
+     * Inicializa el diccionario simple dejándolo listo para su uso.
      *
      * @implNote Complejidad: Constante.
      */
@@ -22,7 +24,8 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
     }
 
     /**
-     * Agrega un par clave-valor al diccionario.
+     * Agrega un par clave-valor al diccionario. Si la clave ya existe, agrega
+     * un nuevo valor con la misma clave.
      *
      * @param clave La clave (prioridad) asociada al valor.
      * @param valor El valor que se asocia a la clave.
@@ -35,7 +38,8 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
     }
 
     /**
-     * Elimina el elemento con la clave especificada del diccionario.
+     * Elimina el elemento asociado a la clave especificada en el diccionario.
+     * Si la clave no existe, no realiza cambios.
      *
      * @param clave La clave del elemento a eliminar.
      *
@@ -46,7 +50,7 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
         ColaPrioridadTDA colaAux = new ColaPrioridad();
         colaAux.inicializarCola();
 
-        // Recorre la cola original y transfiere los elementos que no tienen la clave a eliminar a una cola auxiliar.
+        // Recorre la cola original y transfiere los elementos no coincidentes a una cola auxiliar.
         while (!elementos.colaVacia()) {
             int prioridad = elementos.prioridad();
             if (prioridad != clave) {
@@ -64,9 +68,10 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
 
     /**
      * Recupera el valor asociado a la clave especificada en el diccionario.
+     * Si hay múltiples valores asociados a la clave, devuelve uno de ellos.
      *
      * @param clave La clave cuyo valor se desea recuperar.
-     * @return El valor asociado a la clave.
+     * @return El valor asociado a la clave. Si la clave no existe, devuelve 0.
      *
      * @implNote Complejidad: Lineal.
      */
@@ -98,7 +103,8 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
     /**
      * Devuelve un conjunto con todas las claves presentes en el diccionario.
      *
-     * @return Un conjunto que contiene todas las claves del diccionario.
+     * @return Un conjunto que contiene todas las claves del diccionario. Si el
+     * diccionario está vacío, devuelve un conjunto vacío.
      *
      * @implNote Complejidad: Lineal.
      */

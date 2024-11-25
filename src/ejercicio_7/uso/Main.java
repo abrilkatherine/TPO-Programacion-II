@@ -17,6 +17,7 @@ public class Main {
         pila.apilar(5);
         pila.apilar(9);
 
+        // Encontrar elementos repetidos en la pila
         ConjuntoTDA repetidos = devolverElementosRepetidos(pila);
 
         // Mostrar los elementos repetidos
@@ -31,10 +32,12 @@ public class Main {
     /**
      * Encuentra los elementos repetidos en una pila y los devuelve en un conjunto.
      *
-     * @param pila La pila de la que se deben identificar los elementos repetidos.
-     * @return Un conjunto que contiene los elementos repetidos encontrados en la pila.
+     * Utiliza un conjunto para almacenar los elementos únicos y otro para los repetidos.
+     * La pila original se restaura tras procesar los datos.
      *
-     * @implNote Complejidad: Lineal
+     * @param pila Pila de la que se identifican los elementos repetidos. Queda restaurada tras la ejecución.
+     * @return Conjunto con los elementos repetidos encontrados en la pila.
+     *
      */
     public static ConjuntoTDA devolverElementosRepetidos(PilaTDA pila) {
         ConjuntoTDA unicos = new Conjunto(); // conjunto auxiliar para elementos únicos
@@ -60,6 +63,7 @@ public class Main {
             pila.apilar(pilaAux.tope());
             pilaAux.desapilar();
         }
+
         return repetidos;
     }
 }

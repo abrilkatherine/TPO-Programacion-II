@@ -6,6 +6,8 @@ import imple.Pila;
 
 public class MultiPila implements MultiPilaTDA {
 
+    /** Resolución adoptada: implementación dinámica */
+
     private class Nodo {
         int info; // Dato del nodo
         Nodo sig; // Apunta al siguiente nodo

@@ -30,13 +30,15 @@ public class Main {
     }
 
     /**
-     * @param grafo El grafo sobre el cual se realizará la búsqueda.
-     * @param origen El vértice de origen.
-     * @param destino El vértice de destino.
-     * @return Un conjunto con los vértices puente entre \(origen\) y \(destino\).
+     * Recorre todos los vértices del grafo, exceptuando el origen y el destino, verificando si cumplen con esta condición.
      *
-     * @implNote Complejidad: Exponencial.
+     * @param grafo Grafo en el que se realizará la búsqueda de vértices puente.
+     * @param origen Vértice de origen desde donde comienza la búsqueda.
+     * @param destino Vértice de destino al que se dirige la búsqueda.
+     * @return Conjunto con los vértices puente entre el origen y el destino.
+     *
      */
+
     public static ConjuntoTDA puente(GrafoTDA grafo, int origen, int destino) {
         ConjuntoTDA puente = new Conjunto();
         puente.inicializarConjunto();
