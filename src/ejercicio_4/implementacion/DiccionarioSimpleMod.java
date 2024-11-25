@@ -41,7 +41,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      */
     @Override
     public void agregar(int clave, int valor) {
-        int pos = this.clave2Indice(clave);
+        int pos = this.buscarIndicePorClave(clave);
 
         if (pos == -1) {
             // La clave no existe, se agrega un nuevo elemento
@@ -66,7 +66,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      */
     @Override
     public void eliminar(int clave) {
-        int pos = clave2Indice(clave);
+        int pos = buscarIndicePorClave(clave);
         if (pos != -1) {
             // Reemplaza el elemento a eliminar con el último y disminuye la cantidad
             elementos[pos] = elementos[cant - 1];
@@ -84,7 +84,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      */
     @Override
     public int recuperar(int clave) {
-        int pos = clave2Indice(clave);
+        int pos = buscarIndicePorClave(clave);
         return elementos[pos].valor;
     }
 
@@ -99,7 +99,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      */
     @Override
     public int recuperarMod(int clave) {
-        int pos = clave2Indice(clave);
+        int pos = buscarIndicePorClave(clave);
         return elementos[pos].factorMod;
     }
 
@@ -131,7 +131,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      *
      * @implNote Complejidad: Lineal.
      */
-    private int clave2Indice(int clave) {
+    private int buscarIndicePorClave(int clave) {
         int i = cant - 1;
         while (i >= 0 && elementos[i].clave != clave) {
             i--;

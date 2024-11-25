@@ -20,25 +20,25 @@ public class Main {
     }
 
     /**
-     * Calcula la suma de los valores impares en un árbol binario de búsqueda (ABB).
+     * Recorre el árbol en forma recursiva, verificando si el nodo actual
+     * contiene un valor impar. Si es impar, se agrega a la suma total. La recursión
+     * asegura que se procesen todos los nodos del árbol, visitando primero el subárbol
+     * izquierdo, luego la raíz, y finalmente el subárbol derecho.
      *
-     * @param abb el árbol binario de búsqueda.
-     * @return la suma de los valores impares en el árbol.
+     * @param abb Árbol binario de búsqueda (ABB) cuyos valores se analizarán.
+     * @return La suma de los valores impares en el árbol.
      *
-     * @implNote Complejidad: Lineal.
      */
+
     public static int sumaImpares(ABBTDA abb) {
         if (abb.arbolVacio()) {
             return 0;
         } else {
-            // Suma los valores impares del subárbol
-            int suma = sumaImpares(abb.hijoIzq());
-            //si la raiz es impar, se suma
-            if (abb.raiz() % 2 != 0) {
+            int suma = sumaImpares(abb.hijoIzq()); // Suma los valores impares del subárbol
+            if (abb.raiz() % 2 != 0) {  //si la raiz es impar, se suma
                 suma += abb.raiz();
             }
-            // Se suma los valores impares del subárbol derecho
-            suma += sumaImpares(abb.hijoDer());
+            suma += sumaImpares(abb.hijoDer()); // Se suma los valores impares del subárbol derecho
             return suma;
         }
     }

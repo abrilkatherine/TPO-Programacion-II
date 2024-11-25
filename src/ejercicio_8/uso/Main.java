@@ -31,9 +31,12 @@ public class Main {
     }
 
     /**
-     * Imprime los elementos de una cola, restaurándola a su estado original.
+     * Recorre los elementos de la cola original y los imprime en el
+     * orden en que aparecen, utilizando una cola auxiliar para preservar su
+     * contenido.
      *
      * @param cola La cola cuyos elementos se deben imprimir.
+     * @implNote Complejidad: Lineal.
      */
     public static void imprimirCola(ColaTDA cola) {
         ColaTDA aux = new Cola();
@@ -55,34 +58,36 @@ public class Main {
     }
 
     /**
-     * Devuelve una nueva cola sin elementos repetidos basada en una cola original.
-     * Mantiene la cola original sin modificaciones.
+     * Utiliza un conjunto para rastrear elementos únicos mientras recorre la cola original. Cualquier elemento ya visto
+     * es ignorado al construir la nueva cola. La cola original se restaura tras el proceso.
      *
      * @param cola La cola original con posibles elementos repetidos.
-     * @return Una nueva cola que contiene solo elementos únicos.
+     * @return Una nueva cola que contiene solo elementos únicos, en el mismo orden en que aparecían en la cola original.
+     *
+     * @implNote Complejidad: lineal.
      */
-
     public static ColaTDA eliminarRepetidos(ColaTDA cola) {
-        ConjuntoTDA elementosVistos = new Conjunto(); // conjunto auxiliar para elementos elementosVistos
-        ColaTDA colaSinDuplicados = new Cola(); //
-        ColaTDA colaAux = new Cola(); // cola auxiliar para restaurar la cola original
+        ConjuntoTDA elementosVistos = new Conjunto(); // Conjunto auxiliar para almacenar elementos únicos
+        ColaTDA colaSinDuplicados = new Cola(); // Cola para elementos no repetidos
+        ColaTDA colaAux = new Cola(); // Cola auxiliar para restaurar la cola original
 
         elementosVistos.inicializarConjunto();
         colaSinDuplicados.inicializarCola();
         colaAux.inicializarCola();
 
-        // Búsqueda de elementos no repetidos
+        // Recorrer los elementos de la cola original
         while (!cola.colaVacia()) {
-            int elemento = cola.primero(); // Se destruye la cola para procesarla
+            int elemento = cola.primero();
             cola.desacolar();
-            colaAux.acolar(elemento); // Se guarda el elemento en la cola auxiliar
+            colaAux.acolar(elemento); // Guardar el elemento en la cola auxiliar
 
-            if (!elementosVistos.pertenece(elemento)) {
+            if (!elementosVistos.pertenece(elemento)) { // Verificar si el elemento es único
                 elementosVistos.agregar(elemento);
                 colaSinDuplicados.acolar(elemento);
             }
         }
-        // Restauración de la cola original
+
+        // Restaurar la cola original
         while (!colaAux.colaVacia()) {
             cola.acolar(colaAux.primero());
             colaAux.desacolar();

@@ -27,12 +27,13 @@ public class Main {
     }
 
     /**
-     * Obtiene una cola con los valores únicos presentes en un diccionario múltiple.
+     * Recorre todas las claves y valores del diccionario, usando un conjunto auxiliar para evitar duplicados.
+     * Los valores únicos se agregan a la cola en el orden en que son encontrados.
      *
-     * @param diccionarioMultiple el diccionario múltiple del cual se obtendrán los valores únicos
-     * @return una cola con los valores únicos presentes en el diccionario múltiple
+     * @param diccionarioMultiple Diccionario múltiple del cual se obtendrán los valores únicos.
+     * @return Cola con los valores únicos presentes en el diccionario.
      *
-     * @implNote Complejidad: Polinomica.
+     * @implNote Complejidad: Polinómica.
      */
 
     public static ColaTDA valoresUnicos(DiccionarioMultipleTDA diccionarioMultiple) {
