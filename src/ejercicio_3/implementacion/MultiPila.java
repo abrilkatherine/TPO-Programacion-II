@@ -20,8 +20,6 @@ public class MultiPila implements MultiPilaTDA {
      * Apila todos los elementos de una pila en la pila múltiple.
      *
      * @param valores La pila cuyos elementos se deben apilar en la pila múltiple.
-     *
-     * @implNote Complejidad: Lineal.
      */
 
     public void apilar(PilaTDA valores) {
@@ -48,7 +46,6 @@ public class MultiPila implements MultiPilaTDA {
      *
      * @param valores La pila con los valores que se desean eliminar de la pila múltiple.
      *
-     * @implNote Complejidad: Lineal.
      */
     public void desapilar(PilaTDA valores) {
         Nodo actual = primero; // Nodo actual comienza desde el primero.
@@ -82,8 +79,6 @@ public class MultiPila implements MultiPilaTDA {
      *
      * @param cantidad La cantidad de elementos a incluir.
      * @return Una pila con los primeros elementos solicitados.
-     *
-     * @implNote Complejidad: Lineal.
      */
     public PilaTDA tope(int cantidad) {
         PilaTDA pilaAux = new Pila();
