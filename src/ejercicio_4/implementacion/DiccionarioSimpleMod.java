@@ -6,6 +6,8 @@ import tda.ConjuntoTDA;
 
 public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
 
+    /** Resolución adoptada: implementación estática */
+
     // Clase interna que representa un elemento del diccionario
     private class Elemento {
         int clave;
@@ -40,6 +42,7 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
     @Override
     public void agregar(int clave, int valor) {
         int pos = this.clave2Indice(clave);
+
         if (pos == -1) {
             // La clave no existe, se agrega un nuevo elemento
             elementos[cant] = new Elemento();
@@ -105,13 +108,14 @@ public class DiccionarioSimpleMod implements DiccionarioSimpleModTDA {
      *
      * @return Conjunto de claves presentes en el diccionario.
      *
-     * @implNote Complejidad: Polinomica.
+     * @implNote Complejidad: Lineal.
      */
     @Override
     public ConjuntoTDA claves() {
         int i = cant - 1;
         ConjuntoTDA claves = new Conjunto();
         claves.inicializarConjunto();
+
         while (i >= 0) {
             claves.agregar(elementos[i].clave);
             i--;

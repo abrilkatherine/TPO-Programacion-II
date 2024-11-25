@@ -35,7 +35,8 @@ public class Main {
      *
      * @param pila la pila de la cual se obtendrán los elementos para el diccionario
      * @return un diccionario simple con los elementos de la pila y sus respectivas frecuencias
-     * COSTO POLINOMICO
+     *
+     * @implNote Complejidad: Polinomica.
      */
 
     public static DiccionarioSimpleTDA transformarPilaEnDiccionarioSimple(PilaTDA pila) {

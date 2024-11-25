@@ -1,9 +1,10 @@
 package ejercicio_1.implementacion;
 
-
 import ejercicio_1.interfaz.ConjuntoEspecialTDA;
 
 public class ConjuntoEspecial implements ConjuntoEspecialTDA {
+
+    /** Resolución adoptada: implementación estática */
 
     private int[] conjunto; //almacena los elementos del conjunto.
     private int cant; //indica la cantidad actual de elementos en el conjunto.
@@ -79,8 +80,7 @@ public class ConjuntoEspecial implements ConjuntoEspecialTDA {
             resp.error = false; // Indica que no hubo error.
             int max = cant - 1;
             int min = 0;
-            // Genera una posición aleatoria entre 0 y (cant-1).
-            int pos = (int) (Math.random() * (max - min + 1) + min);
+            int pos = (int) (Math.random() * (max - min + 1) + min); // Genera una posición aleatoria entre 0 y (cant-1).
             resp.rta = conjunto[pos]; // Asigna el elemento elegido a la respuesta.
         } else {
             resp.error = true; // Indica que el conjunto está vacío.

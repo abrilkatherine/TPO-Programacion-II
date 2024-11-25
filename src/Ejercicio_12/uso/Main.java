@@ -22,9 +22,10 @@ public class Main {
     /**
      * Calcula la suma de los valores impares en un árbol binario de búsqueda (ABB).
      *
-     * @param abb el árbol binario de búsqueda
-     * @return la suma de los valores impares en el árbol
-     * COSTO LINEAL
+     * @param abb el árbol binario de búsqueda.
+     * @return la suma de los valores impares en el árbol.
+     *
+     * @implNote Complejidad: Lineal.
      */
     public static int sumaImpares(ABBTDA abb) {
         if (abb.arbolVacio()) {
@@ -41,6 +42,4 @@ public class Main {
             return suma;
         }
     }
-
-
 }

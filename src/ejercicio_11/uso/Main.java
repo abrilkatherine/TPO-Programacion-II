@@ -20,7 +20,7 @@ public class Main {
         ColaTDA cola = valoresUnicos(diccionarioMultiple);
 
         while (!cola.colaVacia()) {
-            System.out.println("valores de la queue: " + cola.primero());
+            System.out.println("Valores en la queue: " + cola.primero());
             cola.desacolar();
         }
 
@@ -31,7 +31,8 @@ public class Main {
      *
      * @param diccionarioMultiple el diccionario múltiple del cual se obtendrán los valores únicos
      * @return una cola con los valores únicos presentes en el diccionario múltiple
-     * COSTO POLINOMICO
+     *
+     * @implNote Complejidad: Polinomica.
      */
 
     public static ColaTDA valoresUnicos(DiccionarioMultipleTDA diccionarioMultiple) {
@@ -46,9 +47,11 @@ public class Main {
             int clave = claves.elegir();
             claves.sacar(clave);
             ConjuntoTDA valores = diccionarioMultiple.recuperar(clave);
+
             while (!valores.conjuntoVacio()) {
                 int valor = valores.elegir();
                 valores.sacar(valor);
+
                 if (!valoresUnicos.pertenece(valor)) {
                     valoresUnicos.agregar(valor); // Añadir al conjunto de valores únicos
                     cola.acolar(valor);         // Añadir a la cola
@@ -57,6 +60,4 @@ public class Main {
         }
         return cola;
     }
-
-
 }

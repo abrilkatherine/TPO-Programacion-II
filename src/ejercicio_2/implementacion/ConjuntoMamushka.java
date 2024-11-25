@@ -2,6 +2,8 @@ package ejercicio_2.implementacion;
 
 import ejercicio_2.interfaz.ConjuntoMamushkaTDA;
 
+/** Resolución adoptada: implementación estática */
+
 public class ConjuntoMamushka implements ConjuntoMamushkaTDA {
     private int[] elem; // Declaración del arreglo que almacenará los elementos.
     private int indice; // Variable que indica la posición actual para insertar elementos.
